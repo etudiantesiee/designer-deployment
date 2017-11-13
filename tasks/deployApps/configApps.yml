@@ -13,3 +13,19 @@
      regexp='fileName=".*?"' 
      replace='fileName="{{ logs_files_floder }}/{{ item.name }}/logs/{{ item.name }}.log"' 
   with_items: "{{ applications }}"
+  
+# Configuration de la suppression de tous les dessins au demarrage  
+- name: Configuring shapes removal at startup
+  lineinfile: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/application.properties 
+     regexp='^.*service\.startup\.shapes\.deleteall.*$' 
+     line='service.startup.shapes.deleteall = {{ item.delete_all_shapes_at_startup }}' 
+  with_items: "{{ applications }}"
+
+# Configuration du niveau de log
+- name: Configuring applications logs level
+  replace: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/log4j2.xml 
+     regexp='level=".*?"' 
+     replace='level="{{ item.log_level }}"' 
+  with_items: "{{ applications }}"

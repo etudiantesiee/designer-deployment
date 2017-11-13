@@ -3,3 +3,6 @@
 
 # Configuration des applications
 - include: deployApps/configApps.yml
+
+# Demarrage des applications
+- include: deployApps/startApps.yml
