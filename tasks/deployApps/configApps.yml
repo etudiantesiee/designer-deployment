@@ -1,0 +1,15 @@
+# Configuration du port d'écoute de l'application     
+- name: Configuring applications port
+  lineinfile: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/application.properties 
+     regexp='^.*server\.port.*$' 
+     line='server.port = {{ item.port }}' 
+  with_items: "{{ applications }}"
+
+# Configuration du chemin vers le fichier de logs
+- name: Configuring applications logs path
+  replace: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/log4j2.xml 
+     regexp='fileName=".*?"' 
+     replace='fileName="{{ logs_files_floder }}/{{ item.name }}/logs/{{ item.name }}.log"' 
+  with_items: "{{ applications }}"

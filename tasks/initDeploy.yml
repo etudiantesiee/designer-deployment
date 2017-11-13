@@ -1,2 +1,5 @@
 # Installation des applications
 - include: deployApps/installApps.yml
+
+# Configuration des applications
+- include: deployApps/configApps.yml

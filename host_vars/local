@@ -8,4 +8,5 @@ applications :
   - { 
      name : 'designer-serviceI1', 
      package : 'fr/esiee/pic/designer-service/0.0.1-SNAPSHOT/designer-service-0.0.1-SNAPSHOT.tar.gz', 
+     port : '8091',
     }
