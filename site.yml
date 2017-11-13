@@ -1,0 +1,6 @@
+---
+- hosts: ["local"]
+  remote_user: "{{ remote_user_id }}"
+  become: True
+  tasks:
+     - include: tasks/initDeploy.yml

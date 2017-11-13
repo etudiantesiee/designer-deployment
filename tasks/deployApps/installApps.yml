@@ -1,0 +1,6 @@
+# Creation du repertoire contenant les binaires des applications
+- name: Create applications folder
+  file: 
+    path={{ install_apps_folder }}
+    state=directory 
+    recurse=yes
