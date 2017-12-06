@@ -1,0 +1,6 @@
+# Suppression de l'ancienne version de la webapp
+- name: Create applications folder
+  file: 
+    path={{ install_apps_folder }}/{{ item.name }}
+    state=absent
+  with_items: "{{ webApp }}" 

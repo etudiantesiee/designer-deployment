@@ -12,4 +12,12 @@ applications :
      delete_all_shapes_at_startup : 'false',
      log_level : 'INFO',
      execute: true
-    }
+   }
+    
+webApp : 
+  - {
+		name : designer-webapp,
+		package : fr/esiee/pic/designer-webapp/0.0.1-SNAPSHOT/designer-webapp.tar.gz,
+		service_host : localhost,
+		service_port : 8091 
+     }

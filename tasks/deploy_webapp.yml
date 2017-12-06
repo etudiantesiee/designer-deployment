@@ -1,0 +1,8 @@
+# Suppression de l'ancienne version de la web app
+- include: webapp/deleteWebApp.yml
+
+# Installation de la webapp
+- include: webapp/installWebApp.yml
+
+# Configuration de la webapp
+- include: webapp/configWebApp.yml

@@ -1,0 +1,16 @@
+# Creation du repertoire contenant les fichiers de la webapp
+# On itere sur les applications web définit avec la variable webApp
+- name: Create web applications folder
+  file: 
+    path={{ install_apps_folder }}/{{ item.name }}
+    state=directory 
+    recurse=yes
+  with_items: "{{ webApp }}" 
+  
+# Installation de l'application web à partir de l'archive
+- name: Deploying web applications
+  unarchive: 
+    src={{ artifactory_repo_url }}/{{item.package}} 
+    dest={{ install_apps_folder }}/{{ item.name }}
+    remote_src=yes
+  with_items: "{{ webApp }}"

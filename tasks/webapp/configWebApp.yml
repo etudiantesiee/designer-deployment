@@ -1,0 +1,15 @@
+# Configuration de la machine de la couche de service vu par l'application web
+- name: Configuring web applications service host
+  replace: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/webappConf.js
+     regexp='host.*' 
+     replace='host:'{{ item.service_host }}','
+  with_items: "{{ webApp }}"
+
+# Configuration du port de la machine de la couche de service vu par l'application web
+- name: Configuring web applications service port
+  replace: 
+     dest={{ install_apps_folder }}/{{ item.name }}/conf/webappConf.js
+     regexp='port.*' 
+     replace='port:'{{ item.service_port }}',' 
+  with_items: "{{ webApp }}"
